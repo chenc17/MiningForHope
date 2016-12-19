@@ -57,7 +57,8 @@ If possible download with the web installer. Use the "Install Now" option that i
 2. In RunTC.py and TwitterClassification.py, change the first line "#!/usr/bin/enc python" to "#!python3"
 ```
 py -3.5 -m pip install textblob
-``````
+```
+```
 py -3.5 -m pip install tqdm
 ```
 ```
