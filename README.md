@@ -1,6 +1,5 @@
 ## Synopsis:  <br />
-This project "scrapes" friend or follower information from a Twitter account and classifiers the friends or followers into two broad classes:  <br />
-organizations that are fighting human trafficking and everyone else
+This project "scrapes" friend or follower information from a Twitter account and classifies the friends or followers into two broad classes:  organizations that are fighting human trafficking and everyone else
 
 ##Requirements:
 * Python 3.5
@@ -53,24 +52,24 @@ Thorn_twitter_friends_data_[DATE].txt: This is all data (ORG AND NORG) organized
 Assuming that enough ORGs are found, RunTC.py will pivot and keep scraping new ORGs found until hitting the PULL_AND_CLASSIFY_THRESH limit defined at the top of RunTC.py
 
 ##Running via cmd window (assuming no requirements in place)
-1. Make sure python 3.5.2 is installed. If not, download appropriate version from https://www.python.org/downloads/windows/
+1. Make sure python 3.5.2 is installed. If not, download appropriate version from https://www.python.org/downloads/windows/ <br />
 If possible download with the web installer. Use the "Install Now" option that includes the pip installer. Be sure to also check the "Add Python 3.5 to PATH."
 2. In RunTC.py and TwitterClassification.py, change the first line "#!/usr/bin/enc python" to "#!python3"
-3. ```
-py -3.5 -m pip install textblob
 ```
-4. ```
+py -3.5 -m pip install textblob
+``````
 py -3.5 -m pip install tqdm
 ```
-5. ```
+```
 py -3.5 -m pip install twython
 ```
-6. Navigate to folder containing RunTC.py, TwitterClassification.py and any of the required training/testing files
+3. Navigate to folder containing RunTC.py, TwitterClassification.py and any of the required training/testing files
 ```
 py RunTC.py
 ```
 If you get an error along the lines of "tokenizers/punkt/english.pickle not found": <br />
 In a Python shell, <br />
+
 ```
 >>>import nltk
 >>>nltk.download('punkt')
@@ -80,7 +79,7 @@ In a Python shell, <br />
 PULL_AND_CLASSIFY_THRESH - how many Twitter entities to pull info from <br />
 FRIEND_THRESH - only pull and classify friend info from entities with this many friends or less <br />
 
-##TwitterClassification.py API:
+##TwitterClassification.py "API":
 
 ##def clean(str_to_clean)
 removes new lines, carriage return characters, and unprintable characters. Returns cleaned string.  <br />
@@ -117,7 +116,6 @@ returns: list of screen names of all ORGs found (no error) or ERROR (error) <br 
 ##Next Steps:
 -Find a way to save and reload classifier (to eliminate wait time in re-creating classifier) <br />
 -Work on way to automatically update classifier based on new information being gathered/increase accuracy of classifier (currently, keywords at top of TwitterClassification.py are helpful but rather limiting, resulting in a large amount of false negatives) <br />
--Have a limit on amount of friends/followers that will be classified for a given Twitter Entity (probably do not want to pull all the 94,000 friends of IJM...!) <br />
 -Find a way to only write entities to ORG files that have not been recorded yet <br />
 -Read in Twitter tokens from a config file and perform verification <br />
 -Get script to continue running even when computer sleeps <br />
